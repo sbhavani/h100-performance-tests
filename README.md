@@ -6,8 +6,9 @@ This repository tested the T-FLOPS on an 8xH100 node, gratiously provided by Cor
 
 1. Clone this repository
 2. Install requirements `pip install -r h100-stuff/requirements.txt` (and ensure you have `git-lfs` installed. [See here for directions](https://askubuntu.com/questions/799341/how-to-install-git-lfs-on-ubuntu-16-04))
-3. `wandb login` to track with wandb
-4. `accelerate launch --config_file h100-stuff/fp8.yml h100-stuff/run_summarization_no_trainer.py --model_name_or_path t5-large --dataset_name cnn_dailymail --dataset_config "3.0.0" --source_prefix "summarize: " --output_dir tst-summarization --per_device_train_batch_size=4 --per_device_eval_batch_size=4  --with_tracking --report_to "wandb" --max_train_steps 100`
+3. `wandb login` to track with wandb (Optional)
+4. `accelerate launch --config_file bf16_fsdp.yml run_summarization_no_trainer.py --model_name_or_path t5-small --dataset_name cnn_dailymail --dataset_config "3.0.0" --source_prefix "summarize: " --output_dir tst-summarization --per_device_train_batch_size=1 --per_device_eval_batch_size=1 --max_train_steps 3`
+
 
 ## Report
 
