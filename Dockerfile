@@ -7,3 +7,5 @@ RUN pip install accelerate transformers datasets evaluate==0.4.0 huggingface-hub
 
 # Optional: for experiment tracking
 # RUN pip install wandb==0.15.0 tensorboard==2.12.2
+
+RUN apt-get update && apt install emacs-nox -y
